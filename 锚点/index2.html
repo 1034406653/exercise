@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			html,body{
+				width: 100%;
+				height: 100%;
+			}
+			ul{
+				position: relative;
+			}
+			ul,li{
+				width: 100%;
+				height: 100%;
+			}
+			li{
+				position: absolute;
+				z-index: 1;
+				background: #fff;
+				display: none;
+			}
+		</style>
+		<script src="../js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<ul>
+			<li style="display: block;">0</li>
+		</ul>
+		
+		<ul>
+			<li id="1">1</li>
+			<li id="2">2</li>
+			<li id="3">3</li>
+			<li id="4">4</li>
+			<li id="5">5</li>
+			<li id="6">6</li>
+			<li id="7">7</li>
+			<li id="8">8</li>
+			<li id="9">9</li>
+		</ul>
+		<script type="text/javascript">
+			var b=sessionStorage.name;
+			if(b==null){
+				b=1;
+			}
+			var di=$("#"+b);
+			di.show();
+		</script>
+	</body>
+</html>

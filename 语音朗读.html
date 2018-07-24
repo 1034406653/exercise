@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<div id="bdtts_div_id">
+		<p id="ttsText">找零1235.66元</p>
+	</div>		
+	
+	<body>
+		<script type="text/javascript">
+			
+			function doTTS(){
+				var ttsDiv = document.getElementById('bdtts_div_id');
+				var ttsText = document.getElementById('ttsText').innerText;
+				// 这样为什么替换不了播放内容
+				/*var ssrcc = 'http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=10&text='+ttsText;
+				document.getElementById('tts_source_id').src=ssrcc;*/
+				// 这样就可实现播放内容的替换了
+				var au1 = '<audio id="tts_autio_id" autoplay="autoplay">';
+				var sss = '<source id="tts_source_id" 				src="http://tsn.baidu.com/text2audio?lan=zh&ie=UTF-8&cuid=454654656456&client_id=SGl9s949iYCd27WuzevLr5Ub&client_secret=e013599c94ccae0b9f89cc0796911a19&spd=5&cpt=1&text='+ttsText+'" type="audio/mpeg">';
+				var eee = '<embed id="tts_embed_id" height="0" width="0" src="">';
+				var au2 = '</audio>';
+				ttsDiv.innerHTML = au1 + sss + eee + au2;
+				ttsAudio = document.getElementById('tts_autio_id');
+				ttsAudio.play();
+			}
+			doTTS();
+		</script>
+	</body>
+</html>

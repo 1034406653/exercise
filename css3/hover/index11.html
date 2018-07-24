@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			body{
+				width: 100%;
+			}
+			.conli{
+				    margin: 0 auto;
+				    width: 285px;
+				    padding-top: 127px;
+				    position: relative;
+			}
+			.pic{
+				    width: 285px;
+				    height: 183px;
+				    transition: .3s all;
+				    position: relative;
+				    z-index: 8;
+			}
+			.pic1,.pic2,img{
+				display: block;
+				    width: 285px;
+   					 height: 183px;
+			}
+			.pic2{
+				display: none;
+			}
+			.name{
+				width: 285px;
+			    font-size: 18px;
+			    color: #fff;
+			    text-align: center;
+			    line-height: 56px;
+			    font-weight: 700;
+			    position: absolute;
+			    top: 191px;
+			    z-index: 10;
+			    transition: .3s all;
+			}
+			.tbox{
+				 width: 285px;
+			    height: 283px;
+			    transform: translateY(-156px);
+			    overflow: hidden;
+			}   
+			.txt{
+				background: url(images/568-566.png) center top no-repeat;
+			    background-size: 285px 283px;
+			    width: 285px;
+			    height: 283px;
+			    overflow: hidden;
+			    transform: translateY(-283px);
+			    transition: .3s all;
+			}
+			span{
+				    display: block;
+				    padding-top: 91px;
+				    width: 234px;
+				    height: 144px;
+				    overflow: hidden;
+				    margin: 0 auto;
+				    font-size: 14px;
+				    color: #fff;
+				    line-height: 24px;
+			}
+			.conli:hover .pic{
+				transform: translateY(-126px);
+			}
+			.conli:hover .pic1{
+				display: none;
+			}
+			.conli:hover .pic2{
+				display: block;
+			}
+			.conli:hover .txt{
+				transform: translateY(0);
+			}
+		</style>
+	</head>
+	<body>
+			<div class="conli">	
+					<div class="pic">
+						<div class="pic1"><img src="https://img.alicdn.com/tfs/TB18AZLQXXXXXaVaFXXXXXXXXXX-568-366.png"></div>
+						<div class="pic2"><img src="https://img.alicdn.com/tfs/TB1Q4kJQXXXXXcjaFXXXXXXXXXX-568-366.png"></div>
+					</div>
+					<div class="name">人工智能魔术师</div>
+					<div class="tbox"><div class="txt"><span>在2016年双十一晚会上，ET魔术秀用到了语音识别及人脸识别。ET需要在现场复杂的光线以及嘈杂的晚会现场环境中，通过语音及人脸识别，把扑克牌的顺序与嘉宾的人脸一一对应。</span></div></div>
+			</div>
+	</body>
+</html>

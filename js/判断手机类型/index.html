@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>有爱宠APP</title>
+	</head>
+	<body>
+		<script type="text/javascript">	
+			var u = navigator.userAgent;
+			var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+			var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+			if(isAndroid){
+				window.location.href='https://pet.boyuanpay.com/petbaby/download/youaichong.apk';
+			}else if(isiOS){
+				window.location.href='https://itunes.apple.com/cn/app/%E6%9C%89%E7%88%B1%E5%AE%A0/id1378003882?mt=8';
+			}
+		</script>
+		
+	</body>
+</html>

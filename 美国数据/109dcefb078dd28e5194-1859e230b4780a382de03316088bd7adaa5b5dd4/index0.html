@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="counties.js" type="text/javascript"></script>
+<title>hmda1 -- old</title>
+<style>
+
+body {
+  font: 15px sans-serif;
+}
+
+path {
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+form, #info, #title {
+  position: absolute;
+}
+
+#info {
+  top: 250px;
+  left: 820px;
+}
+
+#title {
+  font-size: 20px;
+  top: 20px;
+  left: 480px;
+}
+
+</style>
+<body>
+<form id='toggle'>
+    Purchases
+    <input type="radio" name="select" value="purchases" checked>
+    <br>Refinances
+    <input type="radio" name="select" value="refinances">
+</form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+<script>
+console.log(aaa.objects.counties)
+var width = 960, height = 500;
+var active = d3.select(null);
+
+var path = d3.geo.path();
+
+var info = d3.select("body").append("div")
+    .attr("id", "info");
+
+var title = d3.select("body").append("div")
+    .attr("id", "title");
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var g = svg.append("g");
+
+var colors = ['#DB7500', '#FF931B', '#FFB058', '#FFC98D', '#FFDFB9', 
+              '#AFD2EB', '#7FB7E3', '#4497D9', '#0072CE', '#004DBA',],
+    values = [ -100, -60, -45, -30, -15, 15, 30, 45, 60, 100];
+
+var color = d3.scale.linear()
+        .domain(values)
+        .range(colors)
+        .clamp(true);
+
+queue()
+    .defer(d3.json, "counties.json")
+    .defer(d3.json, "states.json")
+    .defer(d3.csv, "purchases.csv")
+    .defer(d3.csv, "refinances.csv")
+    .await(ready);
+
+function ready(error, counties, states, purchases, refinances) {
+  if (error) throw error;
+
+  features = topojson.feature(counties, counties.objects.counties).features;
+
+  features = features.filter(function(d) { return ["PR", "VI"].indexOf(d.properties.STATE) == -1; });
+
+  purchases = prepare(purchases);
+  refinances = prepare(refinances);
+
+  addData(purchases);
+
+  var map = g.selectAll("path")
+      .data(features)
+    .enter()
+      .append("path")
+      .attr("d", path)
+      .style("fill", "none")
+      .on("mouseover", label)
+      .on("mouseout", function() { info.html(""); })
+      .on("click", clicked)
+
+  toggle();
+
+  legend();
+
+  setTimeout(function() {
+    d3.selectAll("#toggle input")
+        .on("click", toggle)
+        .filter(function() { return (this.value == "refinances") ? this.checked = true : false; })
+        .call(function() { toggle.apply(this.node()); });
+  }, 5000);
+
+  function toggle () {
+    var label = (this.value == "refinances") ? "Refinances " : "Home Purchases ";
+    if (this.value == "refinances") addData(refinances);
+    if (this.value == "purchases") addData(purchases);
+    title.html(label + "2012-2013");
+
+    svg.selectAll("path")
+        .data(features)
+        .style("fill", function(d) { return !d.p ? "lightgray" : d.p[5]; })
+      .transition()
+        .delay(1000)
+        .duration(1000) 
+        .style("fill", function(d) { return !d.p ? "lightgray" : d.p[6]; })
+        .each("end", function(d) { title.html(label + "2013-2014") })
+  }
+
+  function addData(data) {
+    features.forEach(function(d) {
+      var p = d.p = data.get(d.properties.STATE).get(d.properties.COUNTY) || null;
+      if (p == null) return;
+      d.p[3] = Math.round( 100 * (p[1].count - p[0].count) / p[0].count );
+      d.p[4] = Math.round( 100 * (p[2].count - p[1].count) / p[1].count );
+      d.p[5] = color( d.p[3] );
+      d.p[6] = color( d.p[4] );
+    });
+  }
+
+  function prepare(data) {
+    data = data.filter(clean);
+
+    data = d3.nest()
+        .key(function(d) { return d.state; })
+        .key(function(d) { return d.county_name; })
+        .rollup(function(d) { return d.length < 3 ? null : d; })
+        .map(data, d3.map);
+
+    return data;
+  } 
+
+  function clean(d) {
+    d.state = states[d.state_name]; 
+    d.county_name = (d.county_name == "Prince of Wales-Hyder Census Area") ? 
+                    "Prince of Wales-Outer Ketchikan Census Area" : d.county_name;
+
+    return ["", "Puerto Rico", "Virgin Islands"].indexOf(d.state_name) == - 1; 
+  }
+
+  function clicked(d) {
+    if (active.node() === this) return reset();
+    active.classed("active", false);
+    active = d3.select(this).classed("active", true);
+
+    var state = d.properties.STATE;
+    var s = topojson.merge(counties, counties.objects.counties.geometries.filter(function(d) { return d.properties.STATE == state; }))
+
+    var bounds = path.bounds(s),
+        dx = bounds[1][0] - bounds[0][0],
+        dy = bounds[1][1] - bounds[0][1],
+        x = (bounds[0][0] + bounds[1][0]) / 2,
+        y = (bounds[0][1] + bounds[1][1]) / 2,
+        scale = .9 / Math.max(dx / width, dy / height),
+        translate = [width / 2 - scale * x, height / 2 - scale * y];
+
+    g.transition()
+        .duration(750)
+        .style("stroke-width", 1.5 / scale + "px")
+        .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+  }
+
+  function reset() {
+    active.classed("active", false);
+    active = d3.select(null);
+
+    g.transition()
+        .duration(750)
+        .style("stroke-width", "1.5px")
+        .attr("transform", "");
+  }
+}
+
+function label(d) { 
+  info.html(d.properties.COUNTY + ", " + d.properties.STATE + "<br>FIPS: " + d.id
+          + "<br>2012: " + (d.p ? d.p[0].count : "no data")
+          + "<br>2013: " + (d.p ? d.p[1].count : "no data")
+          + "<br>2014: " + (d.p ? d.p[2].count : "no data") 
+          + "<br>2012-2013: " + (d.p ? d.p[3] + " %" : "no data")
+          + "<br>2013-2014: " + (d.p ? d.p[4] + " %" : "no data"))
+}
+
+function legend() {
+  var x0 = 50, y0 = 50,
+      fontSize = 10,
+      boxSize = 1.5 * fontSize;
+
+  var legend = svg.selectAll(".legend")
+      .data(color.domain().slice().reverse())
+    .enter().append("g")
+      .attr("class", "legend")
+      .style("font-size", fontSize + "px")
+      .attr("transform", function(d, i) { return "translate(0," + (y0 + 1.1 * i * boxSize) + ")"; });
+
+  legend.append("rect")
+      .attr("x",  x0 )
+      .attr("width", boxSize)
+      .attr("height", boxSize)
+      .style("fill", color);
+
+  legend.append("text")
+      .attr("x", x0 - 10 )
+      .attr("y", boxSize )
+      .attr("dy", "-0.38em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d; });
+}
+
+</script>

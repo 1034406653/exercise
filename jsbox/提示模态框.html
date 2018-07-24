@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<div class="btn" id="btn">
+			点我啊
+		</div>
+		<div id="modal"></div>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var Modal = function (ele) {
+			    this.ele = document.getElementById(ele);
+			    this.ele.style.cssText="display: none;padding: 30px 10px;width: 40%;background: rgba(0, 0, 0, 0.6);line-height: 30px;position: fixed;top: 40%;left: 50%;margin-left: -20%;border-radius: 4px;color: #ffffff;font-size: 40px;text-align: center;z-index: 1;line-height: 60px;"
+			    this.ele.innerHTML="<span></span>";
+			    this.span=this.ele.getElementsByTagName("span")[0];
+			    this.shown = false;
+			};
+			Modal.prototype.show = function (text) {
+			    this.span.innerText=text || '';
+			    this.shown = true;
+			    if(this.shown)
+			    	this.ele.style.display="block"
+			    else
+			    	this.ele.style.display="none"
+			    var that = this;
+			    window.setTimeout(function () {
+			        that.shown = false;
+			        that.ele.style.display="none"
+			    }, 2000);
+			};
+			var btn=document.getElementById("btn");
+			btn.onclick=function(){
+				var showModal = new Modal('modal');
+				showModal.show("你要第二东西卖完了，请选择别的吧")
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			ul,li{
+				list-style: none;
+			}
+			#text1{
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+				background: #eee;
+			}
+			#text2{
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+				background: #eee;
+			}
+		</style>
+	</head>
+	<div id="text1"></div>
+	<div id="text2"></div>
+	<div id="KEYBoard" class="keyBoard"></div>
+	<div id="KEYBoard2" class="keyBoard"></div>
+	<body>
+		<script src="index.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var aaa=new KeyBoard({
+				eleId:"KEYBoard",
+				textEleId:"text1",
+			})
+			var bbb=new KeyBoard({
+				eleId:"KEYBoard2",
+				textEleId:"text2",
+				maxNum:70213213,
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      console.log(navigator.onLine); /*浏览器是否联网*/
+      console.log(navigator.geolocation); /*地理位置信息接口*/
+      console.log(navigator.appName); /*web浏览器的全称*/
+      console.log(navigator.userAgent);
+      console.log(navigator.platform); /*浏览器的操作系统*/
+      /*区分浏览器*/
+      function IsPC(){
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+        var flag = true;
+        for(var v = 0; v < Agents.length; v++) {
+          if(userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+          }
+        }
+        if(flag){
+          console.log("我是电脑")
+        }else{
+          console.log("我是手机")
+        }
+      }
+      IsPC();
+    </script>
+  </body>
+</html>

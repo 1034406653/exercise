@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		http://blog.csdn.net/github_33644920/article/details/50856944
+		<script type="text/javascript">
+			stopTouchendPropagationAfterScroll();
+			    function stopTouchendPropagationAfterScroll(){
+			        var flag = false;
+			        window.addEventListener('touchmove', function(ev){
+			            flag || (flag = true, window.addEventListener('touchend', stopTouchendPropagation, true));
+			        }, false);
+			        function stopTouchendPropagation(ev){
+			            ev.stopPropagation();
+			            setTimeout(function(){
+			                window.removeEventListener('touchend', stopTouchendPropagation, true);
+			                flag = false;
+			            }, 50);
+			        }
+			    }
+		</script>
+	</body>
+</html>

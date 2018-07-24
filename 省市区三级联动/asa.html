@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="script/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="script/jquery.citys.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="style/cssreset-min.css"/>
+		<link rel="stylesheet" type="text/css" href="style/common.css"/>
+	</head>
+	<body>
+		 <div id="demo2" class="citys">
+             <p>
+                 <select name="province"></select>
+                 <select name="city"></select>
+                 <select name="area"></select>
+             </p>
+         </div>
+	</body>
+	 <script type="text/javascript">
+            $('#demo2').citys({valueType:'name',province:'福建',city:'厦门',area:'思明'});
+     </script>
+</html>

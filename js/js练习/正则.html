@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<input type="text"id="text1" value="" />
+		<button></button>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var reg=/^[\u4e00-\u9fa5]\w{6,7}$/
+			var text1=document.getElementById("text1");
+			var btn=document.getElementsByTagName("button")[0];
+			var aaa="";
+			btn.onclick=function(){
+				aaa=text1.value+"";
+				console.log(aaa)
+				console.log(aaa.length)
+				console.log(reg.test(aaa))
+			}
+			/*创建方法：直接量语法创建，构造函数创建*/
+			var pattern=/s$/;
+			var pattern2=new RegExp("s$");
+			
+			/*i执行不区分大小写，g执行全局匹配，m多行匹配*/
+			
+			/*String支持四种使用正则表达式的方法*/
+			/* search(),参数是正则表达式，返回第一个与之匹配的子串的位置，匹配不到返回-1
+			 * "javaScript".search(/script/i)
+			 * 4
+			 */
+			
+			/*replease()第一个参数是正则表达式，第二个参数是进行替换的字符串
+			 *  "javaScript".search(/script/i,"aaa")
+			 * javaaaa
+			 */
+			
+			/*match()参数是正则表达式,返回的是由匹配结果组成的数组
+			 *  "javaScript".match(/a/g)
+			 * ["a","a"]
+			 */
+			
+			/*split()方法的参数也可以是正则表达式*/
+			//  "1, 2, 3, 4, 5".split(/\s*,\s*/);
+			//	["1","2","3","4","5"]
+			 
+			/* RegExp支持三个方法和一些属性   */
+			/*属性：source,global,ignorCase,multiline,lastIndex*/
+			/*方法：exec(),test()*/
+			
+			 
+		</script>
+	</body>
+</html>

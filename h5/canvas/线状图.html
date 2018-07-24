@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="oCanvas" width="1000" height="800"></canvas>
+		<script type="text/javascript">
+			var oCanvas=document.getElementById("oCanvas");
+			var myCanvas=oCanvas.getContext("2d");
+			
+//			坐标轴
+			function drawAxis(){
+				myCanvas.beginPath();
+				myCanvas.moveTo(100,50);
+				myCanvas.lineTo(100,720);
+				myCanvas.strokeStyle="#000000";
+				myCanvas.stroke();
+				myCanvas.closePath();
+				
+				for(var i=1;i<=7;i++){
+					myCanvas.beginPath();
+					myCanvas.moveTo(80,i*100);
+					myCanvas.lineTo(930,i*100);
+					myCanvas.strokeStyle="#000000";
+					myCanvas.stroke();
+					myCanvas.closePath();
+				}
+				
+				for(var i=1;i<=7;i++){
+					myCanvas.beginPath();
+					myCanvas.font="20px 宋体"
+					myCanvas.fillText((7-i)*100,30,i*100+10)
+					myCanvas.closePath();
+				}
+				
+				for(var i=1;i<=5;i++){
+					myCanvas.beginPath();
+					myCanvas.moveTo(i*150+100,700);
+					myCanvas.lineTo(i*150+100,720);
+					myCanvas.strokeStyle="#000000";
+					myCanvas.stroke();
+					myCanvas.closePath();
+				}
+				
+				for(var i=1;i<=5;i++){
+					myCanvas.beginPath();
+					myCanvas.font="20px 宋体"
+					myCanvas.fillText(1965+i*5,i*150,740)
+					myCanvas.closePath();
+				}
+			}
+			drawAxis();
+			
+//			连接线
+			function line(starX,starY,endX,endY,color){
+				myCanvas.beginPath();
+				myCanvas.moveTo(25+starX,700-starY)
+				myCanvas.lineTo(25+endX,700-endY)
+				myCanvas.strokeStyle=color;
+				myCanvas.stroke();
+				myCanvas.closePath();
+				
+			}
+//			
+//          数据
+			function count1(num1,num2,num3,num4,num5){
+				function dot1(x,num){
+					myCanvas.beginPath();
+					myCanvas.rect(20+x,695-num,10,10);
+					myCanvas.fillStyle="red";
+					myCanvas.fill();
+					myCanvas.closePath();
+				}
+				dot1(150,num1)
+				dot1(300,num2)
+				dot1(450,num3)
+				dot1(600,num4)
+				dot1(750,num5)
+				
+				line(150,num1,300,num2,"red")
+				line(300,num2,450,num3,"red")
+				line(450,num3,600,num4,"red")
+				line(600,num4,750,num5,"red")
+			}
+			count1(400,200,300,112,220);
+			
+			function count2(num1,num2,num3,num4,num5){
+				function dot1(x,num){
+					myCanvas.beginPath();
+					myCanvas.moveTo(25+x,700-num);
+					myCanvas.arc(25+x,700-num,5,0,2*Math.PI,false);
+					myCanvas.fillStyle="green";
+					myCanvas.fill();
+					myCanvas.closePath();
+				}
+				dot1(150,num1);
+				dot1(300,num2);
+				dot1(450,num3);
+				dot1(600,num4);
+				dot1(750,num5);
+				
+				
+				line(150,num1,300,num2,"green")
+				line(300,num2,450,num3,"green")
+				line(450,num3,600,num4,"green")
+				line(600,num4,750,num5,"green")
+			}
+			count2(300,100,200,12,120);
+			
+			function count2(num1,num2,num3,num4,num5){
+				function dot1(x,num){
+					myCanvas.beginPath();
+					myCanvas.moveTo(25+x,700-num-5);
+					myCanvas.lineTo(25+x-5,700-num+5)
+					myCanvas.lineTo(25+x+5,700-num+5)
+					myCanvas.fillStyle="blue";
+					myCanvas.fill();
+					myCanvas.closePath();
+				}
+				dot1(150,num1);
+				dot1(300,num2);
+				dot1(450,num3);
+				dot1(600,num4);
+				dot1(750,num5);
+				
+				
+				line(150,num1,300,num2,"blue")
+				line(300,num2,450,num3,"blue")
+				line(450,num3,600,num4,"blue")
+				line(600,num4,750,num5,"blue")
+			}
+			count2(500,300,400,212,320);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+
+  <body>
+    <div id="main">按钮</div>
+    <script type="text/javascript">
+      function a(intNum) {
+        var num = parseInt(intNum);
+        /*单数 前者*2-2,双数 前者*2+2*/
+        var arr = [1];
+        for(let i = 1; i < num; i++) {
+          if(i % 2 != 0) {
+            arr.push(arr[i - 1] * 2 + 2)
+          } else {
+            arr.push(arr[i - 1] * 2 - 2)
+          }
+        }
+        console.log(arr);
+        return arr;
+      }
+      a(10);
+      var timer = false;
+      var a = null;
+      var btn = document.getElementById("main");
+
+      function timerstart() {
+        console.log("定时器开始了");
+        a = setTimeout(timerstart, 3000);
+      }
+      btn.onclick = function() {
+        if(timer) {
+          clearTimeout(a);
+          timer = false;
+        } else {
+          a = setTimeout(timerstart, 3000);
+          timer = true;
+        }
+      }
+      c(() => {
+        console.log(1)
+      }).c(() => {
+        console.log(2)
+      })(() => {
+        console.log(3)
+      })
+      c(() => {
+        console.log(1)
+      }).(() => {
+        console.log(2)
+      }).c(() => {
+        console.log(3)
+      })
+      c(function(){
+      	console.log(1);
+      })
+    </script>
+  </body>
+
+</html>

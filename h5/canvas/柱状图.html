@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="oCanvas" width="500" height="500"></canvas>
+		<script type="text/javascript">
+			var oCanvas=document.getElementById("oCanvas");
+			var myCanvas=oCanvas.getContext("2d");
+			
+			myCanvas.beginPath();
+			myCanvas.moveTo(50,30);
+			myCanvas.lineTo(50,450);
+			myCanvas.strokeStyle="#000000";
+			myCanvas.lineWidth = "1";
+			myCanvas.stroke();
+			myCanvas.closePath();
+			
+			myCanvas.beginPath();
+			myCanvas.moveTo(50,450);
+			myCanvas.lineTo(450,450);
+			myCanvas.strokeStyle="#000000";
+			myCanvas.lineWidth = "1";
+			myCanvas.stroke();
+			myCanvas.closePath();
+			myCanvas.font="20px 宋体"
+			
+			function drawPic(part1,part2,part3){
+				var per1=Math.round(100*part1/(part1+part2+part3))+"%";
+				var per2=Math.round(100*part2/(part1+part2+part3))+"%";
+				var per3=Math.round(100*part3/(part1+part2+part3))+"%";
+				
+				myCanvas.beginPath();
+				myCanvas.fillStyle="red";
+				myCanvas.rect(100,450-part1,50,part1);
+				myCanvas.fill();
+				myCanvas.beginPath();
+				
+				myCanvas.beginPath();
+				myCanvas.rect(200,450-part2,50,part2);
+				myCanvas.fill();
+				myCanvas.beginPath();
+				
+				myCanvas.beginPath();
+				myCanvas.rect(300,450-part3,50,part3);
+				myCanvas.fill();
+				myCanvas.beginPath();
+				
+				myCanvas.beginPath();
+				myCanvas.fillStyle="#008000";
+				myCanvas.fillText(part1,110,440-part1);
+				myCanvas.fill();
+				myCanvas.closePath();
+				
+				myCanvas.beginPath();
+				myCanvas.fillText(per1,110,420-part1);
+				myCanvas.fill();
+				myCanvas.closePath();
+				
+				
+				myCanvas.beginPath();
+				myCanvas.fillText(part2,210,440-part2);
+				myCanvas.fill();
+				myCanvas.closePath();
+				
+				myCanvas.beginPath();
+				myCanvas.fillText(per2,210,420-part2);
+				myCanvas.fill();
+				myCanvas.closePath();
+				
+				myCanvas.beginPath();
+				myCanvas.fillText(part3,310,440-part3);
+				myCanvas.fill();
+				myCanvas.closePath();
+				
+				myCanvas.beginPath();
+				myCanvas.fillText(per3,310,420-part3);
+				myCanvas.fill();
+				myCanvas.closePath();
+			}
+			
+			
+			function drawText(num,left,top){
+				myCanvas.beginPath();
+				myCanvas.fillStyle="#008000";
+				myCanvas.fillText(num,left,top);
+				myCanvas.fill();
+				myCanvas.closePath();
+			}
+			drawText(0,35,450);
+			drawText(100,15,350);
+			drawText(200,15,250);
+			drawText(300,15,150);
+			drawText(400,15,50);
+			
+			//drawPic(250,250,250);
+			
+			
+			function drawPer(percent1,percent2,percent3){
+				var part1=Math.round(600*percent1/100);
+				var part2=Math.round(600*percent2/100);
+				var part3=Math.round(600*percent3/100);
+				var per1=percent1+"%";
+				var per2=percent2+"%";
+				var per3=percent3+"%";
+				myCanvas.beginPath();
+				myCanvas.fillStyle="red";
+				myCanvas.rect(100,450-part1,50,part1);
+				myCanvas.fill();
+				myCanvas.beginPath();
+				
+				myCanvas.beginPath();
+				myCanvas.rect(200,450-part2,50,part2);
+				myCanvas.fill();
+				myCanvas.beginPath();
+				
+				myCanvas.beginPath();
+				myCanvas.rect(300,450-part3,50,part3);
+				myCanvas.fill();
+				myCanvas.beginPath();
+				
+				myCanvas.beginPath();
+				myCanvas.fillStyle="#008000";
+				myCanvas.fillText(part1,110,440-part1);
+				myCanvas.fill();
+				myCanvas.closePath();
+				
+				myCanvas.beginPath();
+				myCanvas.fillText(per1,110,420-part1);
+				myCanvas.fill();
+				myCanvas.closePath();
+				
+				
+				myCanvas.beginPath();
+				myCanvas.fillText(part2,210,440-part2);
+				myCanvas.fill();
+				myCanvas.closePath();
+				
+				myCanvas.beginPath();
+				myCanvas.fillText(per2,210,420-part2);
+				myCanvas.fill();
+				myCanvas.closePath();
+				
+				myCanvas.beginPath();
+				myCanvas.fillText(part3,310,440-part3);
+				myCanvas.fill();
+				myCanvas.closePath();
+				
+				myCanvas.beginPath();
+				myCanvas.fillText(per3,310,420-part3);
+				myCanvas.fill();
+				myCanvas.closePath();
+			}
+				
+			drawPer(50,25,25);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// ES5 的写法  
+			/*var arr1 = [0, 1, 2];  
+			var arr2 = [3, 4, 5];  
+			Array.prototype.push.apply(arr1, arr2); */ 
+			// ES6 的写法  
+			var arr1 = [0, 1, 2,4];  
+			var arr2 = [3, 4, 5];  
+			arr1.push(...arr2);
+			console.log(arr1);
+			arr1.push(arr2);
+			console.log(arr1);
+		function IsPC(){
+		    var userAgentInfo = navigator.userAgent;
+		    
+		    var Agents = ["Android", "iPhone",
+		                "SymbianOS", "Windows Phone",
+		                "iPad", "iPod"];
+		    var flag = true;
+		    for (var v = 0; v < 6; v++) {
+		        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+		        	flag = false;
+		            break;
+		        };
+		    };
+		    if(!flag){
+		    	console.log(0)
+		    };
+		    
+		};
+		IsPC();
+		</script>
+	</body>
+</html>

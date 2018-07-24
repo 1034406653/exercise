@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#myCanvas{
+				display: block;
+				margin: 50px auto;
+				border: 1px solid #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="1200" height="500"></canvas>
+		<script type="text/javascript">
+			var canvasBox=document.getElementById("myCanvas");
+			var ctx=canvasBox.getContext("2d");
+			/*坐标线*/
+			ctx.beginPath();
+			ctx.moveTo(85,64);
+			ctx.lineTo(77,75);
+			ctx.lineTo(93,75);
+			ctx.fillStyle="#666";
+			ctx.fill();
+			ctx.closePath();
+			ctx.beginPath();
+			ctx.moveTo(85,75);
+			ctx.lineTo(85,440);
+			ctx.lineTo(702,440);
+			ctx.strokeStyle="#666";
+			ctx.stroke();
+			ctx.closePath();
+			ctx.beginPath()
+			ctx.moveTo(711,440);
+			ctx.lineTo(700,431);
+			ctx.lineTo(700,449);
+			ctx.fillStyle="#666";
+			ctx.fill();
+			ctx.closePath();
+			/*高*/
+			ctx.beginPath();
+			ctx.moveTo(120,158);
+			ctx.lineTo(580,158);
+			ctx.arcTo(582,158,582,160,2);
+			ctx.lineTo(582,164);
+			ctx.arcTo(582,166,580,166,2);
+			ctx.lineTo(120,166);
+			ctx.arcTo(118,166,118,164,2);
+			ctx.lineTo(118,160);
+			ctx.arcTo(118,158,120,158,2);
+			ctx.fillStyle="#f84146";
+			ctx.fill();
+			ctx.closePath();
+			ctx.beginPath();
+			ctx.moveTo(531,110);
+			ctx.lineTo(614,110);
+			ctx.arcTo(619,110,619,114,5);
+			ctx.lineTo(619,141);
+			ctx.arcTo(619,146,615,146,5);
+			ctx.lineTo(579,146);
+			ctx.lineTo(573,153);
+			ctx.lineTo(566,146);
+			ctx.lineTo(531,146);
+			ctx.arcTo(526,146,526,141,5);
+			ctx.lineTo(526,115);
+			ctx.arcTo(526,110,531,110,5);
+			ctx.fillStyle="#f84146";
+			ctx.fill();
+			ctx.closePath();
+			
+			/*中*/
+			ctx.beginPath();
+			ctx.moveTo(120,275);
+			ctx.lineTo(378,275);
+			ctx.arcTo(380,275,380,277,2);
+			ctx.lineTo(380,281);
+			ctx.arcTo(380,283,378,283,2);
+			ctx.lineTo(120,283);
+			ctx.arcTo(118,283,118,281,2);
+			ctx.lineTo(118,277);
+			ctx.arcTo(118,275,120,275,2);
+			ctx.fillStyle="#57d536";
+			ctx.fill();
+			ctx.closePath();
+			ctx.beginPath();
+			ctx.moveTo(328,223);
+			ctx.lineTo(411,223);
+			ctx.arcTo(415,223,415,228,5);
+			ctx.lineTo(415,254);
+			ctx.arcTo(415,259,410,259,5);
+			ctx.lineTo(376,259);
+			ctx.lineTo(370,266);
+			ctx.lineTo(363,259);
+			ctx.lineTo(328,259);
+			ctx.arcTo(323,259,323,254,5);
+			ctx.lineTo(323,228);
+			ctx.arcTo(323,223,328,223,5);
+			ctx.fillStyle="#57d536";
+			ctx.fill();
+			ctx.closePath()
+			
+			
+			/*低*/
+			ctx.beginPath();
+			ctx.moveTo(120,382);
+			ctx.lineTo(250,382);
+			ctx.arcTo(252,382,252,384,2);
+			ctx.lineTo(252,388);
+			ctx.arcTo(252,390,250,390,2);
+			ctx.lineTo(120,390);
+			ctx.arcTo(118,390,118,388,2);
+			ctx.lineTo(118,384);
+			ctx.arcTo(118,382,120,382,2);
+			ctx.fillStyle="#4686f4";
+			ctx.fillRect(120,382,130,8)
+			ctx.closePath();
+			ctx.moveTo(204,330);
+			ctx.lineTo(283,330);
+			ctx.arcTo(288,330,288,335,5);
+			ctx.lineTo(288,361);
+			ctx.arcTo(288,366,283,366,5);
+			ctx.lineTo(239,366);
+			ctx.lineTo(246,373);
+			ctx.lineTo(252,366);
+			ctx.lineTo(204,366);
+			ctx.arcTo(199,366,199,361,5);
+			ctx.lineTo(199,335);
+			ctx.arcTo(199,330,204,330,5);
+			ctx.fillStyle="#4686f4";
+			ctx.fill();
+		</script>
+	</body>
+</html>

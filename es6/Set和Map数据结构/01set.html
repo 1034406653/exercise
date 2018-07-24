@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      /* ES6 提供了新的数据结构 Set。 它类似于数组， 但是成员的值都是唯一的， 没有重复的值。
+                              Set 本身是一个构造函数， 用来生成 Set 数据结构。*/
+      const s = new Set();
+      [2, 2, 3, 3, 4, 5].forEach((x) => s.add(x));
+      console.log(s)
+      for(let i of s) {
+        console.log(i);
+      }
+      /* 数组去重*/
+      // 去除数组的重复成员
+      console.log([...new Set([1, 1, 2, 2, 2, 3, 3, 3, 3])]) /*[1,2,3]*/
+      //    Set 实例的属性和方法
+      //    Set 结构的实例有以下属性。
+      //    Set.prototype.constructor： 构造函数， 默认就是Set函数。
+      //    Set.prototype.size： 返回Set实例的成员总数。
+      //    Set 实例的方法分为两大类： 操作方法（ 用于操作数据） 和遍历方法（ 用于遍历成员）。 下面先介绍四个操作方法。
+      //    add(value)： 添加某个值， 返回 Set 结构本身。
+      //    delete(value)： 删除某个值， 返回一个布尔值， 表示删除是否成功。
+      //    has(value)： 返回一个布尔值， 表示该值是否为Set的成员。
+      //    clear()： 清除所有成员， 没有返回值。
+      /*Array.from方法可以将 Set 结构转为数组。*/
+      const items = new Set([1, 2, 3, 4, 5]);
+      const array = Array.from(items);
+      //去除数组重复成员的另一种方法
+      function dedupe(array) {
+        return Array.from(new Set(array));
+      }
+      dedupe([1, 1, 2, 3]) // [1, 2, 3]
+      //Set 结构的实例有四个遍历方法，可以用于遍历成员。
+      //
+      //keys()：返回键名的遍历器
+      //values()：返回键值的遍历器
+      //entries()：返回键值对的遍历器
+      //forEach()：使用回调函数遍历每个成员
+      //    由于 Set 结构没有键名，只有键值（或者说键名和键值是同一个值），所以keys方法和values方法的行为完全一致
+      let set = new Set(['red', 'green', 'blue']);
+      for(let item of set.keys()) {
+        console.log(item);
+      }
+      // red
+      // green
+      // blue
+      for(let item of set.values()) {
+        console.log(item);
+      }
+      // red
+      // green
+      // blue
+      for(let item of set.entries()) {
+        console.log(item);
+      }
+      // ["red", "red"]
+      // ["green", "green"]
+      // ["blue", "blue"]
+    </script>
+  </body>
+
+</html>

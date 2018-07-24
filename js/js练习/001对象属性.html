@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p namee="aaa">
+			12312323
+		</p>
+		<script type="text/javascript">
+			/*获取属性值*/
+			console.log(document.getElementsByTagName("p")[0].attributes["namee"].value);
+			document.getElementsByTagName("p")[0].attributes["namee"].value="123";
+			console.log(document.getElementsByTagName("p")[0].attributes["namee"].value);
+		</script>
+	</body>
+</html>

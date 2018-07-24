@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      /*Object.values方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值。*/
+      const obj = {
+        foo: "bar",
+        baz: "42"
+      };
+      console.log(Object.values(obj)); // ["bar", 42]
+      /*Object.values只返回对象自身的可遍历属性。*/
+      const obj = Object.create({}, {
+        p: {
+          value: 42
+        }
+      });
+      Object.values(obj) // []
+      const obj = Object.create({}, {
+        p: {
+          value: 42,
+          enumerable: true
+        }
+      });
+      Object.values(obj) // [42]
+      /*  如果Object.values方法的参数是一个字符串，会返回各个字符组成的一个数组*/
+      Object.values('foo')
+      // ['f', 'o', 'o']
+    </script>
+  </body>
+
+</html>

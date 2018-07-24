@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      /*ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，前六种是：undefined、null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。*/
+      let s = Symbol();
+      console.log(typeof s);
+      console.log(s);
+      /* Symbol函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述，主要是为了在控制台显示，或者转为字符串时，比较容易区分。*/
+      let s1 = Symbol("foo");
+      let s2 = Symbol("bar");
+      console.log(s1) // Symbol(foo)
+      console.log(s2) // Symbol(bar)
+      console.log(s1.toString()) // "Symbol(foo)"
+      console.log(s2.toString()) // "Symbol(bar)"
+      /* 如果 Symbol 的参数是一个对象，就会调用该对象的toString方法，将其转为字符串，然后才生成一个 Symbol 值。*/
+      const obj = {
+        toString() {
+          return 'abc';
+        }
+      };
+      const sym = Symbol(obj);
+      console.log(sym)
+      // Symbol(abc)
+      /* Symbol函数的参数只是表示对当前 Symbol 值的描述，因此相同参数的Symbol函数的返回值是不相等的。*/
+      // 没有参数的情况
+      let s3 = Symbol();
+      let s4 = Symbol();
+      console.log(s3 === s4) // false
+      // 有参数的情况
+      let s5 = Symbol('foo');
+      let s6 = Symbol('foo');
+      console.log(s5 === s6) // false
+      /*Symbol值不能与其他类型的值进行运算，会报错*/
+      let sym = Symbol('My symbol');
+      console.log("your symbol is " + sym)
+      // TypeError: can't convert symbol to string
+      console.log(`your symbol is ${sym}`)
+      // TypeError: can't convert symbol to string
+    </script>
+  </body>
+</html>

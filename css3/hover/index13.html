@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.ali-product-img {
+			    position: relative;
+			    height: 75px;
+			    width: 75px;
+			    background: no-repeat 50%;
+			    margin: 0 auto;
+			    background-size: 75px;
+			    background-position: 0 0; 
+			    margin-bottom: 200px;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="ali-product-img" style="background-image: url(&quot;https://img.alicdn.com/tps/TB1ceKWLXXXXXaEapXXXXXXXXXX-150-9000.jpg&quot;);"></div>
+	<div class="ali-product-img" style="background-image: url(&quot;https://img.alicdn.com/tps/TB1sd_fLXXXXXX2XFXXXXXXXXXX-150-9000.jpg&quot;);"></div>
+	<div class="ali-product-img" style="background-image: url(&quot;https://img.alicdn.com/tps/TB1icTcLXXXXXclXFXXXXXXXXXX-150-9000.jpg&quot;);"></div>
+	<div class="ali-product-img" style="background-image: url(&quot;https://img.alicdn.com/tps/TB1l3YmLXXXXXb9XXXXXXXXXXXX-150-9000.jpg&quot;);"></div>
+	<div class="ali-product-img" style="background-image: url(&quot;https://img.alicdn.com/tps/TB1.1fkLXXXXXXrXpXXXXXXXXXX-150-9000.jpg&quot;);"></div>
+	<div class="ali-product-img" style="background-image: url(&quot;https://img.alicdn.com/tps/TB1heGZLXXXXXaeapXXXXXXXXXX-150-9000.jpg&quot;);"></div>
+    <script type="text/javascript">
+    	var begintop=null;
+    	var endtop=null;
+    	$(".ali-product-img").hover(function(event){
+    		clearInterval($(this).endtop);
+    		var ppp=0;
+    		if(ppp!=1){
+    			var Vtop= -75;
+	    		var that=$(this);
+	    		that.begintop=setInterval(function(){
+	    			ppp=1;
+	    			if(Vtop>-4225&&Vtop<1){
+		    			Vtop -= 75;
+		    		}else{
+		    			clearInterval(that.begintop);
+		    			ppp=0;
+		    		}
+		    		that.css({"backgroundPosition":"0 "+Vtop+"px"});
+	    		},20)
+    		}
+    	},function(){
+    		clearInterval($(this).begintop);
+    		var ppp=0;
+    		if(ppp!=2){
+    			var Vtop= -4200;
+	    		var that=$(this);
+	    		that.endtop=setInterval(function(){
+	    			ppp=2;
+		    			if(Vtop<0){
+			    			Vtop += 75;
+			    		}else{
+			    			clearInterval(that.endtop);
+			    			ppp=0;
+			    		}
+			    		that.css({"backgroundPosition":"0 "+Vtop+"px"});
+		    	},20)
+    		}
+    	})
+    </script>
+	</body>
+</html>

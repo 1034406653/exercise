@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.btn{
+				width: 100px;
+				height: 100px;
+				background: green;
+			}
+			.tanchuang{
+				width: 100px;
+				height: 100px;
+				background: red;
+				display: none;
+			}
+		</style>
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="btn"></div>
+		<div class="tanchuang">555555555</div>
+		<script type="text/javascript">
+			$(function(){
+				/*function test(){aler(0)};
+				$(".btn").click(function(){
+					$(".tanchuang").css("display","block");
+					setTimeout(function test(){
+						window.location.href="position布局.html";
+					},3000)
+				})*/
+				function test(){window.location.href="position布局.html";};
+				$(".btn").click(function(){
+					$(".tanchuang").css("display","block");
+					setTimeout(function(){test()},3000)
+				})
+				
+			})
+		</script>
+	</body>
+</html>

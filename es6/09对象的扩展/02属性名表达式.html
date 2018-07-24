@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      /*直接用标识符作为属性名*/
+     let obj1={};
+      obj1.foo = true;
+      /*用表达式作为属性名,要将表达式放在方括号之内*/
+      obj1['a' + 'bc'] = 123;
+      /*使用字面量方式定义对象（使用大括号）在 ES5 中只能使用方法一（标识符）定义属性*/
+      var obj2 = {
+        foo: true,
+        abc: 123
+      };
+      /*ES6 允许字面量定义对象时，用方法二（表达式）作为对象的属性名，即把表达式放在方括号内。*/
+     let propkey="foo";
+     let obj3={
+     	[propkey]:true,
+     	['a'+'b']:123
+     }
+     console.log(obj3)
+     /*表达式还可以用于定义方法名。*/
+    let obj4={
+    	['h'+'ellow'](){
+    		return 'hi';
+    	}
+    };
+    obj4.hellow();//hi
+    console.log(obj4.hellow());
+    </script>
+  </body>
+
+</html>

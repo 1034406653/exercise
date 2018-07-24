@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>222222.23265265</div>
+	</body>
+	<script type="text/javascript">
+		var num=document.getElementsByTagName("div")[0];
+		var a=num.textContent;
+		 function toDecimal(x) { 
+	      var f = parseFloat(x); 
+	      if (isNaN(f)) { 
+	        return; 
+	      } 
+	      f = Math.round(x*100)/100; 
+	      return f; 
+	    }
+		 console.log(toDecimal(a));
+		 
+	</script>
+</html>

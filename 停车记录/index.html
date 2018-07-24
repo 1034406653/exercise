@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			ul,li,p,h1,h2,h3,h4,h5,h6,dt,dd{
+			    margin:0;
+			    padding:0;
+			    list-style:none;
+			}
+			html,body{
+				width:99.5%;
+				height:99%;
+			}
+			.content{
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			.d1,.d2,.d3,.d4{
+				width: 50%;
+				height: 50%;
+				float: left;
+				overflow: hidden;
+			}
+			.d1 a,.d2 a,.d3 a{
+				display: block;
+				width: 100%;
+				height: 30px;
+				line-height: 30px;
+				font-size: 18px;
+				text-align: center;
+			}
+			.jiankong{
+				margin: 0 auto;
+				width: calc(100% - 40px);
+				height: calc(100% - 40px);
+				border: 1px solid #222;
+			}
+			.d4-top{
+				width: 95%;
+				height: 80px;
+			}
+			.d4-top-left{
+				padding-top: 20px;
+				float: left;
+				line-height: 30px;
+				font-size: 16px;
+			}
+			.d4-top-right{
+				padding-top: 20px;
+				float: right;
+				width: auto;
+				height: auto;
+			}
+			.d4-top-right button{
+				float: left;
+				width: 80px;
+				height:30px;
+				border: 1px solid #222222;
+				cursor: pointer;
+				margin: 0 10px;
+				border-radius: 5px;
+				outline: none;
+				font-size: 16px;
+				line-height: 30px;
+			}
+			.d4-chepai{
+				width:100%;
+				height: 40px;
+				line-height: 30px;
+				font-size: 30px;
+				text-align: center;
+			}
+			.d4-zhifufangshi{
+				margin: 0 auto;
+				width: 300px;
+				height: 40px;
+				overflow: hidden;
+			}
+			.d4-zhifufangshi button{
+				float: left;
+				width: 100px;
+				height: 30px;
+				border: 1px solid #222222;
+				cursor: pointer;
+				margin: 0 10px;
+				font-size: 16px;
+				border-radius: 5px;
+				margin: 0 25px;
+				outline: none;
+			}
+			.table-box{
+				width: 100%;
+				height: calc(100% - 195px);
+				overflow-y: auto;
+			}
+			.list {
+				width: 100%;
+				height: auto;
+			}
+			.luruchepai{
+				float: right;
+				width:80px;
+				height: 26px;
+				margin-right: 20px;
+				line-height: 26px;
+				text-align: center;
+				border: 1px solid #222222;
+				border-radius: 3px;
+				cursor: pointer;
+			}
+			.list td{
+				height: 24px;
+				line-height: 24px;
+				padding: 0 5px;
+				text-align: center;
+				font-size: 12px;
+				
+			}
+			.list th{
+				height: 26px;
+				line-height: 26px;
+				padding: 0 5px;
+				text-align: center;
+				font-size: 14px;
+			}
+			.list td button{
+				width: auto;
+				height: 18px;
+				line-height: 18px;
+				background: #fff;
+				border: 1px solid #222222;
+				border-radius: 3px;
+				cursor: pointer;
+				margin-top: 5px;
+				outline: none;
+			}
+			.tanChuang{
+				position: fixed;
+				right: 20px ;
+				bottom: 20px;
+				background: #FFFFFF;
+				z-index: 10001;
+				
+			}
+			.tanChuang .tan-title{
+				width: 100%;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				font-size: 28px;
+				position: relative;
+				background: #3f65ca;
+				color: white;
+			}
+			.tanChuang .tan-title span{
+				position: absolute;
+				right: 20px;
+				top: 3px;
+				width: 30px;
+				height: 20px;
+				line-height: 20px;
+				cursor: pointer;
+			}
+			.tan-content{
+				padding-top: 10px;
+				width:100%;
+				height: auto;
+				
+			}
+			.tan-content p{
+				width:100%;
+				height:30px;
+				line-height: 30px;
+				text-align: left;
+				font-size: 20px;
+				text-indent: 20px;
+			}
+			.tan-bottom {
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				margin-left: -100px;
+				width:200px;
+				height: 50px;
+			}
+			.tan-bottom button{
+				font-size: 18px;
+				width:80px;
+				height: 28px;
+				line-height: 28px;
+				text-align: center;
+				background: white;
+				border: 1px solid #222;
+				border-radius: 5px;
+				cursor: pointer;
+				outline: none;
+			}
+			.tan-chepai{
+				width: 220px;
+				height: 30px;
+				margin: 50px auto;
+			}
+			.tan-chepai .tan-content-left{
+				width: 80px;
+				float: left;
+				height: 20px;
+				font-size: 14px;
+				line-height: 20px;
+			}
+			
+			.tan-chepai input{
+				width: 120px;
+				float: left;
+				height: 22px;
+				font-size: 14px;
+				line-height: 20px;
+				border: 1px solid #222;
+				color: #222222;
+				outline: none;
+				text-indent: 5px;
+				border-radius: 3px;
+			}
+			.tan-xingming .tan-content-left{
+				width: 60px;
+				float: left;
+				height: 40px;
+				font-size: 20px;
+				line-height: 40px;
+				margin-left: 20px;
+			}
+			.tan-xingming input{
+				width: 150px;
+				float: left;
+				height: 22px;
+				font-size: 14px;
+				line-height: 20px;
+				border: 1px solid #222;
+				color: #222222;
+				outline: none;
+				text-indent: 20px;
+				border-radius: 3px;
+				margin-top: 10px;
+			}
+		</style>
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="content">
+			
+			<div class="d1">
+				<a>出口1</a>
+				<iframe  class="jiankong" src="http://www.baidu.com"></iframe>
+			</div>
+			<div class="d2">
+				<a>出口2</a>
+				<iframe  class="jiankong" src="http://www.baidu.com"></iframe>
+			</div>
+			<div class="d3">
+				<a>进口1</a>
+				<iframe  class="jiankong" src="http://www.baidu.com"></iframe>
+			</div>
+			<div class="d4">
+				<div class="d4-top">
+					<div class="d4-top-left">
+						<p><span>车位数：</span><span>64</span></p>
+						<p><span>剩余数：</span><span>0</span></p>
+					</div>
+					<div class="d4-top-right">
+						<button id="jiaoban">交班</button>
+						<button>查询</button>
+					</div>
+				</div>
+				<div class="d4-chepai">
+					浙A12345
+				</div>
+				<div class="d4-zhifufangshi">
+					<button style="color: blue;">券</button>
+					<button style="color: red;">现金</button>
+				</div>
+				<div class="luruchepai">录入车牌</div>
+				<div class="table-box">
+					
+					<table border="1" cellspacing="0" cellpadding="0" class="list">
+						<tr>
+							<th>车牌</th>
+							<th>金额</th>
+							<th>支付方式</th>
+							<th>入场时间</th>
+							<th>出场时间</th>
+							<th>停留时间</th>
+							<th></th>
+						</tr>
+						<tbody>			
+						<tr>
+							<td>浙A12345</td>
+							
+							<td>68.00</td>
+							<td>微信</td>
+							<td>2017/07/10 23:22:22</td>
+							<td>2017/08/10 22:22:22</td>
+							<td></td>
+							<td>
+								<button class="xiuGai">修改</button>
+								<button class="cheXiao">撤销</button>
+							</td>
+						</tr>		
+						<tr>
+							<td>浙A12345</td>
+							
+							<td>68.00</td>
+							<td>微信</td>
+							<td>2017/07/10 23:22:22</td>
+							<td>2017/08/10 22:22:22</td>
+							<td></td>
+							<td>
+								<button class="xiuGai">修改</button>
+								<button class="cheXiao">撤销</button>
+							</td>
+						</tr>		
+						<tr>
+							<td>浙A12345</td>
+							
+							<td>68.00</td>
+							<td>微信</td>
+							<td>2017/07/10 23:22:22</td>
+							<td>2017/08/10 22:22:22</td>
+							<td></td>
+							<td>
+								<button class="xiuGai">修改</button>
+								<button class="cheXiao">撤销</button>
+							</td>
+						</tr>		
+						<tr>
+							<td>浙A12345</td>
+							
+							<td>68.00</td>
+							<td>微信</td>
+							<td>2017/07/10 23:22:22</td>
+							<td>2017/08/10 22:22:22</td>
+							<td></td>
+							<td>
+								<button class="xiuGai">修改</button>
+								<button class="cheXiao">撤销</button>
+							</td>
+						</tr>		
+						<tr>
+							<td>浙A12345</td>
+							
+							<td>68.00</td>
+							<td>微信</td>
+							<td>2017/07/10 23:22:22</td>
+							<td>2017/08/10 22:22:22</td>
+							<td></td>
+							<td>
+								<button class="xiuGai">修改</button>
+								<button class="cheXiao">撤销</button>
+							</td>
+						</tr>		
+						<tr>
+							<td>浙A12345</td>
+							
+							<td>68.00</td>
+							<td>微信</td>
+							<td>2017/07/10 23:22:22</td>
+							<td>2017/08/10 22:22:22</td>
+							<td></td>
+							<td>
+								<button class="xiuGai">修改</button>
+								<button class="cheXiao">撤销</button>
+							</td>
+						</tr>		
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<!--弹窗-->
+		<!--交班-->
+		<div class="tanChuang" id="addCaseDiv1" style="width: 300px;height: 280px;border: 1px solid #dbdbdb;display: none;">
+        	<div class="tan-title">交班<span  class="close-btn" title="关闭弹窗">x</span></div>
+        	<div class="tan-content">
+        		<p>进场车辆：<span>123</span></p>
+        		<p>出场车辆：<span>100</span></p>
+        		<p>现金：<span>99元</span></p>
+        		<p>券：<span>50张</span></p>
+        		<div class="tan-xingming">
+        			<span class="tan-content-left">姓名：</span>
+        			<input type="text" value="请输入姓名" maxlength="8"/>
+        		</div>
+        	</div>
+        	<div class="tan-bottom">
+        		<button style="float: left;">确定</button>
+        		<button class="quXiao" style="float: right;">取消</button>
+        	</div>
+   		</div>
+		<!--录入车牌-->
+		<div class="tanChuang" id="addCaseDiv2" style="width: 300px;height: 280px;border: 1px solid #dbdbdb;display: none;">
+        	<div class="tan-title">录入车牌<span  class="close-btn" title="关闭弹窗">x</span></div>
+        	<div class="tan-content">
+        		<div class="tan-chepai">
+        			<span class="tan-content-left">车牌号：</span>
+        			<input type="text" value="请输入车牌" maxlength="8"/>
+        		</div>
+        	</div>
+        	<div class="tan-bottom">
+        		<button style="float: left;">确定</button>
+        		<button class="quXiao" style="float: right;">取消</button>
+        	</div>
+   		</div>
+   		
+		<!--修改车牌-->
+		<div class="tanChuang" id="addCaseDiv3" style="width: 300px;height: 280px;border: 1px solid #dbdbdb;display: none;">
+        	<div class="tan-title">修改车牌<span  class="close-btn" title="关闭弹窗">x</span></div>
+        	<div class="tan-content">
+        		<div class="tan-chepai">
+        			<span class="tan-content-left">车牌号：</span>
+        			<input type="text" value="请输入车牌" maxlength="8"/>
+        		</div>
+        	</div>
+        	<div class="tan-bottom">
+        		<button style="float: left;">确定</button>
+        		<button class="quXiao" style="float: right;">取消</button>
+        	</div>
+   		</div>
+		<!--撤销车牌-->
+		<div class="tanChuang" id="addCaseDiv4" style="width: 300px;height: 280px;border: 1px solid #dbdbdb;display: none;">
+        	
+        	<div class="tan-chexiao" style="width: 100%;height: 250px;line-height: 250px;text-align: center;font-size: 14px;">
+        		确定要撤销车牌<span style="color: blue;font-size: 20px;"></span>吗？
+        	</div>
+        	<div class="tan-bottom">
+        		<button style="float: left;" class="queDing">确定</button>
+        		<button style="float: right;"  class="quXiao">取消</button>
+        	</div>
+   		</div>
+   		
+   		<div class="zheDang-bg" style="width: 100%;height: 100%;position: absolute;left: 0;top: 0;z-index: 1000;background: #222222;opacity: 0.3;display: none;"></div>
+		<script type="text/javascript">
+				 function  DateDiff(sDate1,  sDate2){    //sDate1和sDate2是2002-12-18格式  
+					        var date1= sDate1;  //开始时间  
+						    var date2 = sDate2;    //结束时间  
+						    var date3 = new Date(date2).getTime() - new Date(date1).getTime();   //时间差的毫秒数        
+						    //------------------------------  
+						    //计算出相差天数  
+						    var days=Math.floor(date3/(24*3600*1000))  
+						    //计算出小时数  
+						    var leave1=date3%(24*3600*1000)    //计算天数后剩余的毫秒数  
+						    var hours=Math.floor(leave1/(3600*1000))  
+						    //计算相差分钟数  
+						    var leave2=leave1%(3600*1000)        //计算小时数后剩余的毫秒数  
+						    var minutes=Math.floor(leave2/(60*1000))  
+						    //计算相差秒数  
+						    var leave3=leave2%(60*1000)      //计算分钟数后剩余的毫秒数  
+						    var seconds=Math.round(leave3/1000)   
+						    return days+"天"+hours+"小时"+minutes+"分钟"
+				}					 
+				for(var i=1;i<$(".list tr").length;i++){
+					var listtimeday1=$(".list tr").eq(i).find("td").eq(3).text();
+					var listtimeday2=$(".list tr").eq(i).find("td").eq(4).text();
+					DateDiff(listtimeday1,listtimeday2)
+					$(".list tr").eq(i).children("td").eq(5).text(DateDiff(listtimeday1,listtimeday2));
+				}
+				$("#jiaoban").click(function(){
+					$("#addCaseDiv1").toggle();
+					$(".zheDang-bg").toggle();
+				})
+				$(".luruchepai").click(function(){
+					$("#addCaseDiv2").toggle();
+					$(".zheDang-bg").toggle();
+				})
+				$(".xiuGai").click(function(){
+					$("#addCaseDiv3").toggle();
+					$(".zheDang-bg").toggle();
+				})
+				$(".cheXiao").click(function(){
+					$("#addCaseDiv4").toggle();
+					$(".tan-chexiao").find("span").text($(this).parent("td").siblings("td").eq(0).text());
+					$(".zheDang-bg").toggle();
+				})
+				$(".tanChuang").find(".tan-title").find(".close-btn").click(function(){
+					$(this).parents(".tanChuang").css("display","none");
+					$(".zheDang-bg").toggle();
+				})
+				$(".tanChuang").find(".tan-chepai").find("input").click(function(){
+					$(this).val("");
+				})
+				$(".tanChuang").find(".tan-xingming").find("input").click(function(){
+					$(this).val("");
+				})
+				$(".tanChuang .quXiao").click(function(){
+					$(this).parents(".tanChuang").toggle();
+					$(".zheDang-bg").toggle();
+				})
+				
+		</script>
+		
+	</body>
+</html>

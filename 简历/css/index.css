@@ -1,0 +1,310 @@
+*{
+    margin:0;
+    padding:0;
+}
+html,body{
+    width:100%;
+    height:100%;
+    font-size: 100px;
+}
+.musicIcon{
+    position:fixed;
+    right:10px;
+    top:10px;
+    width:50px;
+    height:50px;
+    background:url(../images/musicBtn.png) no-repeat center center;
+    background-size:contain;
+    z-index:99;
+}
+#mySwiper{
+    width: 100%;
+    height:100%;
+    overflow:hidden;
+}
+#mySwiper .swiper-wrapper{
+    width: 100%;
+    height:100%; 
+}
+.swiper-slide{
+	background: #e9ecf1;
+}
+.cong,.ling,.kai,.shi,.zero,.zheshi,.person,.person2{
+    position: absolute;
+}
+.cong{
+    left:40.1%;
+    top:5%;
+    width: 16.2%;
+    height: 7.0%;
+    z-index: 1;
+}
+.ling{
+    left:36%;
+    top:13.3%;
+    width: 15.2%;
+    height: 12.1%;
+    z-index: 2;
+}
+.kai{
+    left:45.6%;
+    top:25.0%;
+    width: 12.5%;
+    height: 11.3%;
+    z-index: 3;
+}
+.shi{
+    left:42.1%;
+    top:35.3%;
+    width: 16.2%;
+    height: 9.4%;
+    z-index: 4;
+}
+.zero{
+    width: 4.8%;
+    height: 8.6%;
+    left: 39.3%;
+    top: 28%;
+    z-index: 5;
+}
+.zheshi{
+    width: 6%;
+    height: 21.5%;
+    left: 31.5%;
+    top: 27%;
+    z-index: 6;
+}
+.person{
+    top:49%;
+    left:31.7%;
+    width: 31%;
+    height: 33%;
+    z-index: 7;
+}
+.person2{
+    width: 30%;
+    height: 42%;
+    left: 31.5%;
+    top: 45%;
+    z-index: 10;
+}
+.page2 .skill1{
+    width: 40%;
+    position: absolute;
+    left: 31%;
+    top: 11.7%;
+}
+.page2 .skill2{
+    width: 18.8%;
+    height: 3.5%;
+    position: absolute;
+    left: 40.5%;
+    top: 19%;
+}
+.page2 .icon{
+    width: 14.5%;
+    height: 47%;
+    position: absolute;
+    left: 16.8%;
+    top: 30.5%;
+}
+.page2 .p1{
+    font-size: 0.22rem;
+    line-height: 0.24rem;
+}
+.page2 .p2{
+    font-size: 0.12rem;
+    line-height: 0.16rem;
+}
+.page2 .skill{
+   position: absolute;
+   left:35%;
+}
+.page2 .photoshop{
+   top:31%;
+   color: #e81004;
+}
+.page2 .js{
+   top:44%;
+}
+.page2 .css3{
+   top:56.5%;
+   color: #e81004;
+}
+.page2 .swiper{
+   top:69%;
+}
+.page3 .message1{
+	position: absolute;
+	width: 32%;
+	height: 4.7%;
+	left: 32%;
+	top:7%;
+}
+.page3 .message2{
+	position: absolute;
+	width: 21.2%;
+	height: 3.1%;
+	left: 37.5%;
+	top:13%;
+}
+.page3 .pic{
+	position: absolute;
+	width: 55%;
+	height: 22.8%;
+	border: 0.04rem solid #a7a7a7;
+	top:25%;
+	left: 22.5%;
+}
+.page3 .name{
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	color: #666;
+	left: 0;
+	top: 49%;
+}
+.page3 .name .p1{
+	font-size: 0.12rem;
+	height: 0.12rem;
+	line-height: 0.12rem;
+	padding-top: 0.1rem;
+	font-weight: 900;
+}
+.page3 .name .p2{
+	font-size: 0.1rem;
+	height: 0.1rem;
+	line-height: 0.13rem;
+	font-weight: 600;
+}
+.page3 .main{
+	position: absolute;
+	left:12%;
+	width: 88%;
+	top: 60%;
+}
+.page3 .main p{
+	overflow: hidden;
+	font-weight: 700;
+	color: #676767;;
+}
+.page3 .main img{
+	padding-top: 0.05rem;
+	width: 0.2rem;
+	height: 0.2rem;
+	float: left;
+}
+.page3 span{
+	padding-left:0.2rem;
+	float: left;
+	font-size: 0.14rem;
+	line-height: 0.3rem;
+}
+.page4 div{
+	width:0.96rem;
+	height: 19.5%;
+	position: absolute;
+	color: #666;
+	font-weight: 700;
+}
+
+.page4 div p{
+	width:0.96rem;
+	line-height: 0.16rem;
+	font-size: 0.12rem;
+	position: absolute;
+}
+.page4 .top{
+	display: block;
+	width: 100%;
+	height: 0.3rem;
+}
+.page4 .icon{
+	display: block;
+	width: 15.6%;
+	height: 9.8%;
+	margin: 0 auto;
+}
+.page4 .line{
+	display: block;
+	width: 0.02rem;
+	height: 9.8%;
+	margin: 0 auto;
+}
+.page4 .study{
+	text-align: right;
+	top:6.4%;
+	left:10%;
+}
+.page4 .experience{
+	text-align: left;
+	top:26%;
+	right:8%;
+}
+.page4 .valuation{
+	text-align: right;
+	top:45.5%;
+	left:10%;
+}
+.page4 .skill{
+	text-align: left;
+	top:64.5%;
+	right:8%;
+}
+.page4 .today{
+	text-align: right;
+	top:84%;
+	left:10%;
+}
+#mask{
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:999;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    display:none;
+}
+#mySwiper .swiper-wrapper .swiper-slide .arrowUp{
+    width:10%;
+    height:5%;
+    background:url(../images/arrow-up.png) no-repeat;
+    background-size: 100% 100%;
+    position:absolute;
+    left:50%;
+    margin-left:-5%;
+    bottom:5%;
+    z-index:99;
+    opacity: 0;
+    -webkit-animation:scal 8s 2s infinite linear forwards;
+}
+@-webkit-keyframes scal{
+    0%{transform:translateY(0%);opacity: 0.9;}
+    50%{transform:translateY(-70%);opacity: 1;}
+    100%{transform:translateY(-100%);opacity: 0;}
+}
+#mask span{
+    position:absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    font-size:30px;
+    width:200px;
+    height:30px;
+    color:white;
+}
+
+
+@media only screen and (orientation:landscape) {
+    #mask{
+        display:block;
+    }
+}
+@media only screen and (orientation:portrait) {
+    #mask{
+        display:none;
+    }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<script src="../js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>-->
+		<style type="text/css">
+			#ali-product-img {
+				position: relative;
+				height: 75px;
+				width: 75px;
+				background: no-repeat 50%;
+				margin: 0 auto;
+				background-image: url(https://img.alicdn.com/tps/TB1icTcLXXXXXclXFXXXXXXXXXX-150-9000.jpg);
+				background-size: cover;
+				background-position: 0 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="ali-product-img">
+		</div>
+		<script type="text/javascript">
+			var Vtop = -10;
+			var begintop = null;
+			var endtop = null;
+			var a = 75;
+			var divBox = document.getElementById("ali-product-img");
+			divBox.onclick = function(){
+				divBox.style.backgroundPosition = "0px "+Vtop + "px";
+			}
+			/*$("#ali-product-img").hover(function() {
+				begintop = setInterval(function() {
+					if(Vtop > -4225 && Vtop < 0) {
+						Vtop -= 75;
+						console.log("aaa");
+					} else {
+						clearInterval(begintop);
+
+					}
+					divBox.style.backgroundPositionY = Vtop + "px";
+				}, 10)
+			}, function() {
+				endtop = setInterval(function() {
+					if(Vtop < 0) {
+						Vtop += 75;
+						console.log(Vtop);
+					} else {
+						clearInterval(endtop);
+					}
+					divBox.style.backgroundPositionY = Vtop + "px";
+				}, 10)
+			})*/
+		</script>
+	</body>
+
+</html>

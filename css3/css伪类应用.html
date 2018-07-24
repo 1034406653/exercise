@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			table tr td:nth-child(2):before{
+				content: "$";
+			}
+		</style>
+	</head>
+	<body>
+		<table border="" cellspacing="" cellpadding="" id="tab">
+			<tr>
+				<th>Header</th>
+				<th>价格</th>
+				<th>Header</th>
+			</tr>
+			<tr>
+				<td>Data</td>
+				<td>222</td>
+				<td>Data</td>
+			</tr>
+			<tr>
+				<td>Data</td>
+				<td>222</td>
+				<td>Data</td>
+			</tr>
+			<tr>
+				<td>Data</td>
+				<td>222</td>
+				<td>Data</td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			var Tab=document.getElementById("tab");
+			for(let i=1;i<Tab.getElementsByTagName("tr").length;i++){
+				Tab.getElementsByTagName("tr")[i].children[1].innerHTML+="$";
+			}
+		</script>
+	</body>
+</html>

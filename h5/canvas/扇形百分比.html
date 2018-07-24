@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="oCanvas" width="500" height="500"></canvas>
+		<script type="text/javascript">
+			var oCanvas=document.getElementById("oCanvas");
+			var myCanvas=oCanvas.getContext("2d");
+			
+			function sector(x,y,r,start,end,color){
+				myCanvas.beginPath();
+				myCanvas.moveTo(250,250);
+				myCanvas.arc(x,y,r,start,end,false);
+				myCanvas.fillStyle=color;
+				myCanvas.fill();
+				myCanvas.beginPath();
+			}
+				
+				var star1=0;
+				var star2=150*Math.PI/180;
+				var star3=340*Math.PI/180;
+				var star4=360*Math.PI/180;
+				var end1=star1;
+				var end2=star2;
+				var end3=star3;
+				
+				var timer=setInterval(function(){
+					end1+=Math.PI/180*(star2/2*Math.PI);
+					end2+=Math.PI/180*((star3-star2)/2*Math.PI);
+					end3+=Math.PI/180*((star4-star3)/2*Math.PI);
+					if(end1>=star2){
+						end1=star2;
+					}
+					if(end2>=star3){
+						end2=star3;
+					}
+					if(end3>=star4){
+						end3=star4;
+					}
+					myCanvas.clearRect(0,0,500,500);
+					sector(250,250,200,star1,end1,"#000");
+					sector(250,250,200,star2,end2,"red");
+					sector(250,250,200,star3,end3,"pink");
+					if(end1==star2&&end2==star3&&end3==star4){
+						clearInterval(timer);
+						
+						var part1=parseInt((star2-star1)/(2*Math.PI)*100)+"%";
+						var disX1 = 250 + 100*Math.cos(star2-(star2-star1)/2);
+						var disY1 = 250 + 100*Math.sin(star2-(star2-star1)/2);
+						myCanvas.beginPath();
+						myCanvas.font = "20px 宋体";
+						myCanvas.fillStyle = "green";
+						myCanvas.fillText(part1,disX1,disY1,400);
+						myCanvas.closePath();
+						
+						var part2=parseInt((star3-star2)/(2*Math.PI)*100)+"%";
+						var disX2 = 250 + 100*Math.cos(star3-(star3-star2)/2);
+						var disY2 = 250 + 100*Math.sin(star3-(star3-star2)/2);
+						myCanvas.beginPath();
+						myCanvas.fillText(part2,disX2,disY2,400);
+						myCanvas.closePath();
+						
+						var part3=parseInt((star4-star3)/(2*Math.PI)*100)+"%";
+						var disX3 = 250 + 100*Math.cos(star4-(star4-star3)/2);
+						var disY3 = 250 + 100*Math.sin(star4-(star4-star3)/2);
+						myCanvas.beginPath();
+						myCanvas.fillText(part3,disX3,disY3,400);
+						myCanvas.closePath();	
+						
+					}
+				},1000/60)
+				
+			
+		</script>
+	</body>
+</html>
+
+

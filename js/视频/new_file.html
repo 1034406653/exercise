@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>capture screen</title>
+</head>
+<body>
+<video id="video" controls="controls">
+    <source src="111.MP4">
+</video>
+<img src="" alt="" id="pic"/>
+<script type="text/javascript">
+    (function(){
+        var video, pic;
+        var scale = 0.3;
+        pic=document.getElementById("pic");
+        video = document.getElementById("video");
+        var initialize = function() {
+           video.addEventListener('loadedmetadata',function(){
+           	setTimeout(captureImage,100)
+           });
+        };
+        var captureImage = function() {
+        	console.log(0);
+            var canvas = document.createElement("canvas");
+            canvas.width = video.videoWidth * scale;
+            canvas.height = video.videoHeight * scale;
+            console.log(video)
+            canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+            console.log(canvas)
+            pic.src = canvas.toDataURL("image/png");
+        };
+        initialize();
+        captureImage();
+    })();
+</script>
+</body>
+</html>

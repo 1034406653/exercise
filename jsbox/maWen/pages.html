@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+
+  <body>
+    <div id="page" class=""></div>
+    <script type="text/javascript" src="maWon.js"></script>
+    <script type="text/javascript">
+      /*所有挂载dom都为原生js获取,jq获取器无法使用*/
+      // 分页器
+      var page = document.getElementById("page");
+      var aaatext = null;
+      aaatext = new MPaging({
+        el: page, //挂载的盒子dom
+        hoverBackground: '', //hover状态下背景色
+        curBackground: '', //当前页码背景色
+        jump: 'block', //显示跳转页节点
+      });
+      aaatext.init({
+        curPage: 5, //当前页码
+        total: 13, //总页码
+        callback: function(num) {
+          //返回页码的回调函数
+          console.log(num);
+        }
+      })
+    </script>
+  </body>
+
+</html>

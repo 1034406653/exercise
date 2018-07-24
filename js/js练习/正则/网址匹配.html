@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+
+  <body>
+    <p id="ptext">asdsasdasdahttps://blog.csdn.net/zhang__ao/article/details/79787236 nic</p>
+    <script type="text/javascript">
+      var regNet = new RegExp("((http|https|ftp|ftps):\\/\\/)?([a-zA-Z0-9-]+\\.){1,5}(com|cn|net|org|hk|tw)((\\/(\\w|-)+(\\.([a-zA-Z]+))?)+)?(\\/)?(\\??([\\.%:a-zA-Z0-9_-]+=[#\\.%:a-zA-Z0-9_-]+(&amp;)?)+)?", "gi");
+      var ele = document.getElementById("ptext");
+      console.log(ele.innerHTML);
+      ele.innerHTML = ele.innerHTML.replace(re, function(a) {
+        console.log(a);
+        return '<a href="' + a + '" target="_blank">' + a + '</a>';
+      });
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<p id="aaa">111</p>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var aaa=document.getElementById("aaa");
+			var timer;
+			function fu1(){
+				aaa.innerHTML="222";
+				
+				timer=setInterval(function(){
+					aaa.innerHTML="111";;
+				},3000)
+			}
+			aaa.onclick=function(){
+				clearInterval(timer);
+				fu1();
+			}
+		</script>
+	</body>
+</html>

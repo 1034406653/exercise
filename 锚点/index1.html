@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="../js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<ul>
+			<li><a href="index2.html#1">111</a></li>
+			<li><a href="index2.html#2">222</a></li>
+			<li><a href="index2.html#3">333</a></li>
+			<li><a href="index2.html#4">444</a></li>
+			<li><a href="index2.html#5">555</a></li>
+			<li><a href="index2.html#6">666</a></li>
+			<li><a href="index2.html#7">777</a></li>
+			<li><a href="index2.html#8">888</a></li>
+			<li><a href="index2.html#9">999</a></li>
+		</ul>
+		<script type="text/javascript">
+			var listli=$("ul li a");
+			for(let i=0;i<listli.length;i++){
+				listli.eq(i).click(function(){sessionStorage
+					sessionStorage.setItem("name", i+1)
+				})
+			}
+		</script>
+	</body>
+</html>
