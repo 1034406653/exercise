@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			.dbox {
+				width: 400px;
+				height: 400px;
+				margin: 100px auto;
+				background: black;
+				border-radius: 50%;
+				position: relative;
+			}
+			
+			div p{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				color: white;
+				
+				text-align: center;
+				border-radius: 50%;
+				padding-top: 20px;
+				
+			}
+			div p:nth-of-type(10n +1){
+				
+				transform: rotate(36deg);
+				-ms-transform: rotate(36deg);
+				/* IE 9 */
+				-moz-transform: rotate(36deg);
+				/* Firefox */
+				-webkit-transform: rotate(36deg);
+				/* Safari 和 Chrome */
+				-o-transform: rotate(36deg);
+				/* Opera */
+			}
+			div p:nth-of-type(10n +2){
+				transform: rotate(72deg);
+				-ms-transform: rotate(72deg);
+				/* IE 9 */
+				-moz-transform: rotate(72deg);
+				/* Firefox */
+				-webkit-transform: rotate(72deg);
+				/* Safari 和 Chrome */
+				-o-transform: rotate(72deg);
+				/* Opera */
+			}
+			div p:nth-of-type(10n +3){
+				
+				transform: rotate(108deg);
+				-ms-transform: rotate(108deg);
+				/* IE 9 */
+				-moz-transform: rotate(108deg);
+				/* Firefox */
+				-webkit-transform: rotate(108deg);
+				/* Safari 和 Chrome */
+				-o-transform: rotate(108deg);
+				/* Opera */
+			}
+			div p:nth-of-type(10n +4){
+				
+				transform: rotate(144deg);
+				-ms-transform: rotate(144deg);
+				/* IE 9 */
+				-moz-transform: rotate(144deg);
+				/* Firefox */
+				-webkit-transform: rotate(144deg);
+				/* Safari 和 Chrome */
+				-o-transform: rotate(144deg);
+				/* Opera */
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="dbox">
+			<p>111111</p>
+			<p>222222</p>
+			<p>333333</p>
+			<p>444444</p>
+
+		</div>
+	</body>
+
+</html>

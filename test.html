@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        *{
+            margin: 0;
+            color:#3a3a3a;
+        }
+        #content{
+            padding:10px;
+        }
+
+        .test{
+            width: 322px;
+            height: 496px;
+            text-align: center;
+            border:1px solid #c0c0c0;
+            background:#fff;
+            margin-top: 1px;
+            margin-left: 1px;
+
+        }
+        canvas{
+            margin-top: -459px;
+            margin-right: 5px;
+            margin-left: 500px;
+        }
+        .down{
+            float: left;
+            margin: 0px 10px;
+        }
+        .header{
+            border-bottom: 1px solid #c0c0c0;
+            text-align: center;
+            padding-top: 10px;
+        }
+        .header>div{
+            width: 164px;
+            margin: 0 auto;
+        }
+        .header img{
+            width: 29px;
+            float: left;
+            margin-right: -10px;
+        }
+        .header p{
+            padding-bottom: 12px;
+            padding-top: 7px;
+        }
+        .main{
+            text-align: center;
+        }
+        .main p:first-child{
+            font-size: 20px;
+            color:#969696;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .main p:last-child{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .main :last-child .id{
+            color:#e67d2c;
+            display:inline-block;
+            margin-right: 4px;
+
+        }
+        .footer{
+            background:#D7D7D7;
+            text-align: center;
+            height: 100px;
+            padding-bottom: 10px;
+        }
+        .footer>div>div{
+            float:left;
+        }
+        .footer>div>div.pic{
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            margin: 10px;
+            margin-right: 0;
+            margin-left: 0;
+            background:#fff;
+        }
+        .footer>div{
+            padding: 10px 22px;
+        }
+        .footer>div>div ul{
+            list-style: none;
+            padding-left: 22px;
+        }
+        .footer>div>div ul li{
+            margin-top: 5px;
+            text-align: left;
+        }
+        .footer>div>div ul li span{
+            display: inline-block;
+            margin-left:15px;
+        }
+        .copy{
+            clear: both;
+            margin-top: 19px;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <div class="test">
+        <div class="header">
+            <div>
+                <img src="u26.png" crossorigin="anonymous">
+                <p>****麻将</p>
+            </div>
+        </div>
+        <div class="main">
+            <p>长按二维码下载游戏</p>
+            <img src="u27.png" class="code" crossorigin="anonymous">
+            <p>绑定推广员ID <span class="id">824996</span>马上领礼包！</p>
+        </div>
+        <div class="footer">
+            <div>
+                <div class="pic">
+                    <img src="">
+                </div>
+                <div>
+                    <ul>
+                        <li>昵&nbsp;&nbsp;   称：<span>天府雀神</span></li>
+                        <li>推广ID：<span>824996</span></li>
+                        <li>微信号：<span>wyscmi007</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="copy">
+    <button onclick="copy()">截图</button>
+    <a class="down" href="" download="downImg">下载</a>
+
+</div>
+<script>
+    var pic;
+    var canvas2 = document.createElement("canvas");
+    let _canvas = document.querySelector('.test');
+    var w = parseInt(window.getComputedStyle(_canvas).width);
+    var h = parseInt(window.getComputedStyle(_canvas).height);
+    //将canvas画布放大若干倍，然后盛放在较小的容器内，就显得不模糊了
+    canvas2.width = w * 2;
+    canvas2.height = h * 2;
+    canvas2.style.width = w + "px";
+    canvas2.style.height = h + "px";
+    //可以按照自己的需求，对context的参数修改,translate指的是偏移量
+    var context = canvas2.getContext("2d");
+    context.scale(2,2);
+    html2canvas(document.querySelector('.test'),{canvas:canvas2}).then(function(canvas) {
+        pic=canvas;
+        //canvas转换成url，然后利用a标签的download属性，直接下载，绕过上传服务器再下载
+        document.querySelector(".down").setAttribute('href',canvas.toDataURL());
+    });
+    //点击的时候把图片复制到下面那个div下
+    function copy(){
+        document.querySelector(".copy").appendChild(pic);
+    }
+</script>
+</body>
+</html>
